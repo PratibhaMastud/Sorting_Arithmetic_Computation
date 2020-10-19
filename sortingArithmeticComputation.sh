@@ -1,5 +1,5 @@
 #! /bin/bash
-# WAP to take Three Inputs.
+# Arithmatic Computation Problem
 #Author:Pratibha Mastud
 
 
@@ -8,4 +8,7 @@ read a
 read b
 read c
 
-echo "The given inputs are : " $a $b $c
+Result=$(($a+$b*$c))
+echo "Result is :" $Result
+
+	
