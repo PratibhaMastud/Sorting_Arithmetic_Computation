@@ -8,7 +8,7 @@ read a
 read b
 read c
 
-Result=$(($c+$a/$b))
+Result=$(($a%$b+$c))
 echo "Result is :" $Result
 
 	
