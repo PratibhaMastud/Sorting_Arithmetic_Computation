@@ -3,7 +3,7 @@
 #Author:Pratibha Mastud
 
 
-echo "Enter three different num"
+echo "Enter three different number"
 read a
 read b
 read c
@@ -27,7 +27,6 @@ do
                         temp=${arr[j]}
                         arr[$j]=${arr[$((j+1))]}
                         arr[$((j+1))]=$temp
-
                 fi
         done
 done
