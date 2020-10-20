@@ -13,26 +13,28 @@ Result2=$(($a*$b+$c))
 Result3=$(($a/$b+$c))
 Result4=$(($a%$b+$c))
 
-
 arr=($Result1 $Result2 $Result3 $Result4)
 echo "Original results array: " ${arr[*]}
+#Sorting Ascending order.
 temp=0
-#Sorting Descending order.
 for (( i=0; i<4; i++ ))
-do
-	for (( j=$i; j<4; j++ ))
+do 
+	for (( j=0; j<4-i; j++ ))
 	do
-		if [ ${arr[$i]} -lt ${arr[$j]} ];
+		if [ ${arr[j]} -lt ${arr[$((j+1))]} ];
 		then
-			temp=${arr[$i]}
-			${arr[$i]}=${arr[$j]}
-			${arr[$j]}=$temp
+			#swap
+			temp=${arr[j]}
+			arr[$j]=${arr[$((j+1))]}
+			arr[$((j+1))]=$temp
+
 		fi
 	done
 done
+echo "Sorting descending order :"
+echo " " ${arr[*]}
 
-echo -e "\nSorted Numbers Descending Order :"
-for (( i=0; i<4; i++ ))
-do
-	echo ${arr[$i]}
-done
+
+
+
+
