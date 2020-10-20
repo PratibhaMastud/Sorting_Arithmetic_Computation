@@ -12,18 +12,20 @@ Result1=$(($a+$b*$c))
 Result2=$(($a*$b+$c))
 Result3=$(($a/$b+$c))
 Result4=$(($a%$b+$c))
-
-	#! /bin/bash
-
 declare -A result
-result[a]=0
-result[b]=0
-result[c]=0
-result[d]=0
-
-    result=( [a]=$Result1 [b]=$Result2 [c]=$Result3 [d]=$Result4 )
-    echo "All values in Result Dictionary : "${result[@]}
-
-
-
+result[1]=$Result1
+result[2]=$Result2
+result[3]=$Result3
+result[4]=$Result4
+#declare an array
+declare -a arr=()
+i=0
+echo "Reading the dictionary values into Array"
+for i in 3
+do	
+	#append each result into array
+	arr+=${result[*]}
+done
+	echo "Result Array : ""${arr[*]}"
+      
 
