@@ -1,5 +1,5 @@
 #! /bin/bash
-# Store Every Arithmetic Computation Results in dictionary
+# Sort Computation result in descending order.
 #Author:Pratibha Mastud
 
 
@@ -12,20 +12,27 @@ Result1=$(($a+$b*$c))
 Result2=$(($a*$b+$c))
 Result3=$(($a/$b+$c))
 Result4=$(($a%$b+$c))
-declare -A result
-result[1]=$Result1
-result[2]=$Result2
-result[3]=$Result3
-result[4]=$Result4
-#declare an array
-declare -a arr=()
-i=0
-echo "Reading the dictionary values into Array"
-for i in 3
-do	
-	#append each result into array
-	arr+=${result[*]}
-done
-	echo "Result Array : ""${arr[*]}"
-      
 
+
+arr=($Result1 $Result2 $Result3 $Result4)
+echo "Original results array: " ${arr[*]}
+temp=0
+#Sorting Descending order.
+for (( i=0; i<4; i++ ))
+do
+	for (( j=$i; j<4; j++ ))
+	do
+		if [ ${arr[$i]} -lt ${arr[$j]} ];
+		then
+			temp=${arr[$i]}
+			${arr[$i]}=${arr[$j]}
+			${arr[$j]}=$temp
+		fi
+	done
+done
+
+echo -e "\nSorted Numbers Descending Order :"
+for (( i=0; i<4; i++ ))
+do
+	echo ${arr[$i]}
+done
